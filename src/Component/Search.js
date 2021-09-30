@@ -6,6 +6,7 @@ import SearchMovieCard from "./SearchMovieCard";
 const Search = () => {
   const theme = useSelector((state) => state.theme);
   const search = useSelector((state) => state.search);
+  const movies = useSelector(state => state.movies)
   const dispatch = useDispatch();
 
   const handleSubmit = (e, s) =>{
@@ -14,7 +15,6 @@ const Search = () => {
     .then((data) =>dispatch(getMovies(data)))
     .catch((error) => console.log(error))
   }
-
   return (
     <>
     <form onSubmit={(e) => dispatch(handleSubmit(e, search))}>
@@ -33,6 +33,7 @@ const Search = () => {
     {/*search && search.map((s) =>(
       <SearchMovieCard key={s.id}/>
     ))*/}
+    {console.log(movies)}
     
 </>
   );

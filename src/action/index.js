@@ -6,12 +6,23 @@ export const getMoviesBySearch = async (search) => {
     const result = await axios.get(
       `https://www.omdbapi.com/?s=${search}&apikey=${API}`
     );
-    console.log(result.data.Search);
     return result.data.Search;
   } catch (error) {
     console.log(error);
   }
 };
+
+export const getDetailsbyId = async (id) =>{
+  try{
+    const result = await axios.get(
+      `https://www.omdbapi.com/?i=${id}&apikey=${API}`
+    )
+    console.log(result.data)
+    return result.data
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export const toggleTheme = (boolean) => {
   return {
