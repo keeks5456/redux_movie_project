@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
+//actions here
+import { toggleTheme } from "./action";
+//componenets here
+import Search from "./Component/Search";
+//styling
+import { Container } from "./Styled-Component/styling";
 
 function App() {
+  const dispatch = useDispatch();
+  //want dark theme set everywhere, keep the state in app
+  const theme = useSelector((state) => state.theme);
+  const search = useSelector((state) => state.search)
+  const movies = useSelector((state) => state.movies)
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container theme={theme}>
+    <h1>Dark Theme in Progress</h1>
+    <button onClick={() => dispatch(toggleTheme(!theme))}>
+    theme change
+    </button>
+    <Search search={search} />
+      
+    </Container>
   );
 }
 
