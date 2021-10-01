@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearch, getMoviesBySearch, getMovies } from "../action";
-import { Container } from "../Styled-Component/styling";
+import { Container, Form, Button } from "../Styled-Component/styling";
 import SearchMovieCard from "./SearchMovieCard";
 
 const Search = () => {
@@ -18,8 +18,7 @@ const Search = () => {
   };
   return (
     <>
-      <Container theme={theme} height="100%">
-        <form onSubmit={(e) => dispatch(handleSubmit(e, search))}>
+        <Form theme={theme} onSubmit={(e) => dispatch(handleSubmit(e, search))}>
           <input
             type="text"
             theme={theme}
@@ -27,14 +26,15 @@ const Search = () => {
             placeholder="search"
             onChange={(e) => dispatch(getSearch(e))}
           ></input>
-          <button
+          <Button
             theme={theme}
             type="submit"
             onClick={(e) => handleSubmit(e, search)}
           >
             Search
-          </button>
-        </form>
+          </Button>
+        </Form>
+        <Container flexFlow theme={theme} height="100%">
         {movie?.map((m) => (
           <SearchMovieCard key={m.id} movie={m} />
         ))}
