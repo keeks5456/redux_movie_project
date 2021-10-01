@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getDetailsbyId, getMovieDetail } from '../action';
-import { Container, Card, Headers } from '../Styled-Component/styling';
+import { Container, Card, Headers , Image} from '../Styled-Component/styling';
 
 const SearchMovieCard = ({movie}) => {
   const theme = useSelector(state => state.theme)
@@ -16,7 +16,7 @@ const SearchMovieCard = ({movie}) => {
   return (
     <Card theme={theme}>
      <Headers>{movie.Title}</Headers>
-     <img src={movie.Poster}></img>
+     <Image src={movie.Poster}></Image>
      <p>{movie.Year}</p>
      </Card>
    

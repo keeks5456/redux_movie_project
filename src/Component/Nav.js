@@ -9,8 +9,8 @@ const Nav = ({theme}) => {
   return (
 
     <Container height="20vhvh"  theme={theme}>
-    <Headers>BlockBusters</Headers>
-    <Button onClick={() => dispatch(toggleTheme(!theme))}>Change Theme</Button>
+    <Headers letters="8px">BLOCKBLASTERS</Headers>
+    <Button margin="0 0 22px 0" onClick={() => dispatch(toggleTheme(!theme))}>Change Theme</Button>
     </Container >
   )
 }
