@@ -1,14 +1,11 @@
-const initialState = {
-  addMovies: [],
-};
+// const initialState = {
+//   addMovies: [],
+// };
 
-const movieReducer = (state = initialState, action) => {
+const movieReducer = (state = [], action) => {
   switch (action.type) {
     case "GET_MOVIES":
-      return {
-        ...state,
-        addMovies: action.payload,
-      };
+      return action.payload
     default:
       return state;
   }
